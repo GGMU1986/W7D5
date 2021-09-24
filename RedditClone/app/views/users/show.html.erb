@@ -4,3 +4,9 @@
 <form action="<%= users_url %>" method="GET">
     <input type="submit" value="Back to Index">
 </form>
+
+<form action="<%= user_url(@user) %>" method="POST">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="submit" value="Delete Account">
+</form>

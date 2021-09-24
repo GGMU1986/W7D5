@@ -7,30 +7,21 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <style>
-      li {
-        color: red;
-        font-weight: bold;
-        list-style: none;
-      }
-
-      header{
-        width: 100%;
-        height: 50px;
-        background: red;
-        color: white;
-        font-size: 10px;
-        font-family: verdana;
-        display: flex;
-        align-items: center; 
-      }
-    </style>
-  
+    <link rel="stylesheet" href="../assets/stylesheets/application.css">
   </head>
 
   <body>
   <header>
-    <h1>GeorgeReddit</h1>  
+    <h1>GeorgeReddit</h1>
+  <div>
+     <form action="<%= new_user_url %>" method="GET">
+        <input type="submit" value="Sign Up">
+    </form>
+
+     <form action="<%= new_session_url %>" method="GET">
+        <input type="submit" value="Log In">
+    </form>
+  </div>
   </header>
   <div>
     <% if flash[:errors] %>
@@ -42,5 +33,16 @@
     <% end %>
   </div>
      <%= yield %>
+
+     <footer>
+      <div>
+        <p>GeorgeReddit</p>
+      </div>
+
+      <div>
+        <p>Copyright 2021</p>
+      </div>
+     </footer>
+
 </body>
 </html>

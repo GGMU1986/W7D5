@@ -13,6 +13,7 @@ class UsersController < ApplicationController
     end
 
     def show
+        debugger
         @user = User.find_by(id: params[:id])
         render :show
     end
@@ -21,7 +22,7 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
 
         if @user.save
-            # login!(@user)
+            login!(@user)
             redirect_to user_url(@user)
         else
             flash.now[:errors] = @user.errors.full_messages
@@ -29,16 +30,24 @@ class UsersController < ApplicationController
         end    
     end
 
-    def edit
+    # def edit
 
-    end
+    # end
 
-    def update
+    # def update
 
-    end
+    # end
 
     def destroy
-
+        @user = User.find_by(id: params[:id])
+        
+        if @user == current_user
+            @user.destroy
+            loggout!
+        else
+            flash[:errors] = ['You cannot delete another user!']
+            redirect_to users_url
+        end
     end
 
     private
