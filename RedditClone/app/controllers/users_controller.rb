@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-    
+    before_action :ensure_logged_in, only: [:show, :destroy]
 
     def index
         @users = User.all
@@ -29,8 +29,15 @@ class UsersController < ApplicationController
         end    
     end
 
-    def destroy
+    def edit
 
+    end
+
+    def update
+
+    end
+
+    def destroy
 
     end
 

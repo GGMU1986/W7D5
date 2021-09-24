@@ -13,20 +13,34 @@
         font-weight: bold;
         list-style: none;
       }
+
+      header{
+        width: 100%;
+        height: 50px;
+        background: red;
+        color: white;
+        font-size: 10px;
+        font-family: verdana;
+        display: flex;
+        align-items: center; 
+      }
     </style>
   
   </head>
 
   <body>
-
+  <header>
+    <h1>GeorgeReddit</h1>  
+  </header>
+  <div>
     <% if flash[:errors] %>
       <ul>
-        <% flash[:errors].each do |error| %>
-          <li><%= error %></li>
-        <% end %>
+          <% flash[:errors].each do |error| %>
+              <li><%= error %></li>
+          <% end %>
       </ul>
     <% end %>
-  
+  </div>
      <%= yield %>
 </body>
 </html>
