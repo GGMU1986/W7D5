@@ -22,7 +22,10 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: redirect('/users')
 
-  resources :users
+  resources :users do 
+    resources :subs, only: [:index, :create]
+  end
 
   resource :session, only: [:new, :create, :destroy]
+  resources :subs, only: [:new, :show, :edit, :update]
 end
