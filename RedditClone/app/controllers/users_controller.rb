@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+    
+
     def index
         @users = User.all
         render :index
@@ -28,7 +30,7 @@ class UsersController < ApplicationController
     end
 
     def destroy
-        
+
 
     end
 
