@@ -13,25 +13,34 @@
   <body>
   <header>
     <h1>GeorgeReddit</h1>
-  <div>
-     <form action="<%= new_user_url %>" method="GET">
-        <input type="submit" value="Sign Up">
-    </form>
+    <% unless logged_in? %>
+      <div>
+        <form action="<%= new_user_url %>" method="GET">
+            <input type="submit" value="Sign Up">
+        </form>
 
-     <form action="<%= new_session_url %>" method="GET">
-        <input type="submit" value="Log In">
-    </form>
-  </div>
-  </header>
-  <div>
-    <% if flash[:errors] %>
-      <ul>
-          <% flash[:errors].each do |error| %>
-              <li><%= error %></li>
-          <% end %>
-      </ul>
-    <% end %>
-  </div>
+        <form action="<%= new_session_url %>" method="GET">
+            <input type="submit" value="Log In">
+        </form>
+      </div>
+      <% else %>
+      <form action="<%= session_url %>" method="POST">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <input type="submit" value="Log Out">
+      </form>
+  <% end %>
+      </header>
+      <div>
+        <% if flash[:errors] %>
+          <ul>
+              <% flash[:errors].each do |error| %>
+                  <li><%= error %></li>
+              <% end %>
+          </ul>
+        <% end %>
+      </div>
+  
      <%= yield %>
 
      <footer>

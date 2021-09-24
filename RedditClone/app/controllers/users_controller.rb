@@ -13,7 +13,6 @@ class UsersController < ApplicationController
     end
 
     def show
-        debugger
         @user = User.find_by(id: params[:id])
         render :show
     end
@@ -44,6 +43,7 @@ class UsersController < ApplicationController
         if @user == current_user
             @user.destroy
             loggout!
+            redirect_to users_url
         else
             flash[:errors] = ['You cannot delete another user!']
             redirect_to users_url

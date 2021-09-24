@@ -25,30 +25,38 @@ li {
         list-style: none;
       }
 
-      header {
-        width: 100%;
-        height: 50px;
-        background: red;
-        color: white;
-        font-size: 10px;
-        font-family: inherit;
-        display: flex;
-        align-items: center;
-        justify-content: space-between; 
-      }
+a { 
+  color: white
+} 
 
-      footer {
-        width: 100%;
-        height: 50px;
-        background: red;
-        color: white;
-        font-size: 10px;
-        font-family: inherit;
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
+a:hover {
+  color:red;
+}
+
+header {
+  width: 100%;
+  height: 50px;
+  background: red;
+  color: white;
+  font-size: 10px;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+}
+
+footer {
+  width: 100%;
+  height: 50px;
+  background: red;
+  color: white;
+  font-size: 10px;
+  font-family: inherit;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
